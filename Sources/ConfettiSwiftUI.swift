@@ -112,6 +112,18 @@ public struct ConfettiCannon: View {
             repetitionInterval: repetitionInterval
         ))
     }
+    
+    public func shootConfetti()
+    {
+        for i in 0...confettiConfig.repetitions{
+            DispatchQueue.main.asyncAfter(deadline: .now() + confettiConfig.repetitionInterval * Double(i)) {
+                animate.append(false)
+                if(1 > 0 && 1 < animate.count){
+                    animate[1-1].toggle()
+                }
+            }
+        }
+    }
 
     public var body: some View {
         ZStack{
